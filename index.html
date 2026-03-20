@@ -55,12 +55,20 @@
     </div>
   </section>
 
-  <section class="section" id="galeria">
-    <h3 class="section-title">🖼️ GALERÍA DE ARTE</h3>
-    <div class="gallery-grid">
-      <div class="gallery-item"><img src="rsc/fanart1.jpg" alt="Arte conceptual | @yuu_uvt"></div>
+<section class="section" id="galeria">
+  <h3 class="section-title">🖼️ GALERÍA DE ARTE</h3>
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <img src="rsc/fanart1.jpg" alt="Arte conceptual | @yuu_uvt" class="clickable-img">
     </div>
-  </section>
+  </div>
+</section>
+
+<div id="image-modal" class="modal">
+  <span class="close-modal">&times;</span>
+  <img class="modal-content" id="img-full">
+  <div id="modal-caption"></div>
+</div>
 
   <section class="section" id="contacto">
     <div class="card card-contact">
@@ -150,4 +158,31 @@ backToTopBtn.onclick = function() {
     behavior: 'smooth'
   });
 };
+
+// --- LÓGICA DE LA GALERÍA ---
+const modal = document.getElementById("image-modal");
+const modalImg = document.getElementById("img-full");
+const captionText = document.getElementById("modal-caption");
+const closeBtn = document.querySelector(".close-modal");
+
+// Seleccionamos todas las imágenes de la galería
+document.querySelectorAll(".clickable-img").forEach(img => {
+  img.onclick = function() {
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt; // Usa el atributo 'alt' como título
+  }
+});
+
+// Cerrar al hacer clic en la X
+closeBtn.onclick = function() {
+  modal.style.display = "none";
+}
+
+// Cerrar al hacer clic fuera de la imagen
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
 </script>
