@@ -303,7 +303,7 @@ html {
 
 /* El prefijo "!" con un color diferente */
 .command-name::first-letter {
-  color: var(--accent-crimson);
+  color: var(--accent-purple);
   font-weight: bold;
 }
 
