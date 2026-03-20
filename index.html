@@ -50,7 +50,7 @@
     <div id="twitch-embed-container"></div>
 
     <p>Interacción directa y caos controlado en el Suzu-verso.</p>
-    <a href="https://twitch.tv/TU_USUARIO" target="_blank" class="btn-action">IR AL CANAL</a>
+<a href="https://twitch.tv/Suzu_VT" target="_blank" class="btn-action">IR AL CANAL</a>
     </div>
   </section>
 
@@ -97,11 +97,12 @@
 </html>
 <script src="https://player.twitch.tv/js/embed/v1.js"></script>
 <script type="text/javascript">
-  var options = {
+var options = {
     width: "100%",
     height: 480,
-    channel: "Suzu_VT", // <--- ¡CAMBIA ESTO POR TU NOMBRE DE TWITCH!
-    parent: ["https://suzuvt.github.io", "127.0.0.1"] // Añade tu dominio final aquí después (ej: "suzu.com")
+    channel: "Suzu_VT", 
+    // He añadido las tres formas más comunes de probar una web:
+    parent: ["suzuvt.github.io", "localhost", "127.0.0.1"] 
   };
 
   var player = new Twitch.Player("twitch-embed-container", options);
