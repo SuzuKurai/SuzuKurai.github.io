@@ -1,61 +1,64 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Suzu_VT</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<header>
-  <h1>Suzu_VT</h1>
-  <p style="letter-spacing: 5px; color: var(--text-muted);">MURCIÉLAGO CREPUSCULAR</p>
-</header>
-
-<nav>
-  <a href="#inicio">INICIO</a>
-  <a href="#lore">LORE</a>
-  <a href="#stream">STREAMS</a>
-  <a href="#contacto">CONTACTO</a>
-</nav>
-
 <main>
   <section class="hero" id="inicio">
-    <h2>AHORA ESTÁS BAJO EL HECHIZO...</h2>
-    <p>Ponte cómodo, la eternidad absoluta no ha hecho más que comenzar.</p>
+    <div class="hero-content">
+      <h2>AHORA ESTÁS BAJO EL HECHIZO...</h2>
+      <p>Ponte cómodo, la eternidad absoluta no ha hecho más que comenzar.</p>
+    </div>
   </section>
 
   <section class="section" id="lore">
-    <div class="card">
-      <h3>🧬 EL EXPERIMENTO</h3>
-      <p>Suzu es una entidad creada por un científico dentro del Suzu-verso, un mundo digital donde múltiples versiones coexisten en una paradoja eterna.</p>
-    </div>
-
-    <div class="card" style="border-left-color: var(--accent-crimson);">
-      <h3>🦇 FORMA MURCIÉLAGO</h3>
-      <p>Una variante nocturna que observa desde las sombras del código. Acecha, reacciona y evoluciona con cada interacción del ritual.</p>
+    <div class="card card-lore">
+      <div class="lock-icon">🔒</div>
+      <h3>LORE DESCONOCIDO</h3>
+      <p class="glitch-text">Este contenido todavía se encuentra oculto... Tendrás que esperar para que sea desbloqueado.</p>
+      <div class="scanline"></div>
     </div>
   </section>
 
   <section class="section" id="stream">
-    <div class="card">
-      <h3>🎥 TRANSMISIONES</h3>
-      <p>Directos en Twitch. Interacción directa, caos controlado y una atmósfera de misterio constante.</p>
+    <div class="card card-stream">
+      <div class="live-indicator">
+        <span class="dot"></span> LIVE
+      </div>
+      <h3>🎥 STREAMS RECIENTES</h3>
+      <div class="video-placeholder">
+        <img src="https://via.placeholder.com/800x450/1a0b1a/8b5cf6?text=Cargando+Señal+de+Twitch..." alt="Twitch Stream">
+      </div>
+      <a href="#" class="btn-action">IR A TWITCH.TV</a>
+    </div>
+  </section>
+
+  <section class="section" id="galeria">
+    <h3 class="section-title">🖼️ GALERÍA DE ARTE</h3>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="rsc/art1.jpg" alt="Suzu Fanart 1"></div>
+      <div class="gallery-item"><img src="rsc/art2.jpg" alt="Suzu Fanart 2"></div>
+      <div class="gallery-item"><img src="rsc/art3.jpg" alt="Suzu Fanart 3"></div>
     </div>
   </section>
 
   <section class="section" id="contacto">
-    <div class="card">
-      <h3>📡 COMUNICACIÓN</h3>
-      <p>Las señales de radio se pierden en el vacío... (Próximamente en redes sociales).</p>
+    <div class="card card-contact">
+      <h3>📡 CANALES DE COMUNICACIÓN</h3>
+      <div class="social-links">
+        <a href="#" class="social-btn tw">Twitter / X</a>
+        <a href="#" class="social-btn tk">TikTok</a>
+        <a href="#" class="social-btn dc">Discord</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="card card-faq">
+      <h3>❓ PREGUNTAS FRECUENTES</h3>
+      <details>
+        <summary>¿Cuándo son los directos?</summary>
+        <p>Sigue mis redes para el horario semanal del Suzu-verso.</p>
+      </details>
+      <details>
+        <summary>¿Qué modelo usas?</summary>
+        <p>Mi forma actual es un Murciélago Crepuscular de alta densidad de datos.</p>
+      </details>
     </div>
   </section>
 </main>
-
-<footer>
-  <p>© 2026 SUZU VTUBER — TODOS LOS PACTOS RESERVADOS</p>
-</footer>
-
-</body>
-</html>
