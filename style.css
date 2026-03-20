@@ -287,24 +287,25 @@ html {
   background: rgba(20, 10, 30, 0.8);
 }
 
-/* El nombre del comando (!comando) */
+/* Estilo para el nombre completo del comando */
 .command-name {
   display: inline-block;
-  font-family: 'Consolas', 'Monaco', monospace;
+  font-family: 'Consolas', monospace;
   font-size: 1.4rem;
-  color: #fff;
+  color: #fff; /* Color del texto del comando (ej: abrazo) */
   margin-bottom: 12px;
   padding: 4px 12px;
   background: rgba(139, 92, 246, 0.1);
   border-radius: 6px;
   border: 1px solid var(--accent-purple);
-  text-shadow: 0 0 10px var(--accent-purple);
 }
 
-/* El prefijo "!" con un color diferente */
-.command-name::first-letter {
+/* ESTILO SOLO PARA EL SIGNO ! */
+.prefix {
   color: var(--accent-purple);
-  font-weight: bold;
+  font-weight: 900;
+  margin-right: 2px; /* Un pelín de espacio para que no choque con la letra */
+  text-shadow: 0 0 8px var(--accent-purple);
 }
 
 /* Descripción del comando */
