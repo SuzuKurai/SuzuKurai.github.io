@@ -171,31 +171,55 @@ footer {
 }
 .btn-action:hover { box-shadow: 0 0 20px var(--accent-purple); }
 
-/* Ajuste de la cuadrícula a 3 columnas */
+/* --- AJUSTE DE LA CAJA DE GALERÍA --- */
+
+.card-gallery {
+    border-left: 4px solid var(--accent-purple);
+    padding: 30px; /* Espacio interno de la caja */
+}
+
+/* Redefinimos la grid para que sea siempre de 3 dentro de la caja */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columnas exactas */
-    gap: 15px;
-    margin-top: 20px;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 15px; /* Espacio entre fotos */
+    margin-top: 10px;
 }
 
-/* En móviles, mejor 1 o 2 columnas */
-@media (max-width: 768px) {
-    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
+/* Ajuste de los ítems para que se vean uniformes */
 .gallery-item {
     cursor: pointer;
-    border-radius: 12px;
+    border-radius: 8px;
     overflow: hidden;
-    height: 250px; /* Altura fija para que todas sean iguales */
+    height: 180px; /* Reducido un poco para que quepan mejor 3 en fila */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover {
+    border-color: var(--accent-purple);
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
 }
 
 .gallery-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.4s ease, filter 0.4s ease;
+    filter: brightness(0.8) contrast(1.1); /* Efecto gótico inicial */
+    transition: 0.4s ease;
+}
+
+.gallery-item:hover img {
+    filter: brightness(1) contrast(1); /* Se ilumina al pasar el mouse */
+    transform: scale(1.1);
+}
+
+/* Responsivo: Si la pantalla es pequeña, pasamos a 2 o 1 columna */
+@media (max-width: 768px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+    .gallery-grid { grid-template-columns: 1fr; }
 }
 
 /* --- ESTILOS DEL MODAL (POP-UP) --- */
