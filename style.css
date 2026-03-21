@@ -661,6 +661,6 @@ html {
 }
 
 /* Colores temáticos opcionales para los bordes al hacer hover */
-.tw:hover { border-color: #1DA1F2; }
+.tw:hover { border-color: #ffffff; }
 .tk:hover { border-color: #ff0050; }
 .dc:hover { border-color: #5865F2; }
