@@ -553,7 +553,7 @@ html {
 
 .glitch-text::before,
 .glitch-text::after {
-  content: "Este contenido todavía se encuentra oculto... Tendrás que esperar para que sea desbloqueado.";
+  content: "El lore todavía se encuentra oculto... Tendrás que esperar a que la maldición se anule.";
   position: absolute;
   top: 0;
   left: 0;
