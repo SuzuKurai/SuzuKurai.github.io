@@ -602,3 +602,65 @@ html {
   10% { transform: skew(-1deg); }
   100% { transform: skew(0deg); }
 }
+
+/* --- SECCIÓN REDES ESTÉTICA --- */
+.social-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-card {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 5px rgba(139, 92, 246, 0.5));
+}
+
+.social-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.social-name {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.social-user {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+/* Efectos al pasar el ratón */
+.social-card:hover {
+    background: rgba(139, 92, 246, 0.1);
+    border-color: var(--accent-purple);
+    transform: translateX(5px); /* Desplazamiento lateral sutil */
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.2);
+}
+
+.social-card:hover .social-icon {
+    transform: scale(1.1) rotate(-5deg);
+    filter: drop-shadow(0 0 8px var(--accent-purple));
+}
+
+/* Colores temáticos opcionales para los bordes al hacer hover */
+.tw:hover { border-color: #1DA1F2; }
+.tk:hover { border-color: #ff0050; }
+.dc:hover { border-color: #5865F2; }
