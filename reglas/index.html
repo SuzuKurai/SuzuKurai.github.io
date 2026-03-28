@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suzu Kurai | Reglas de la Noche</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="rsc/favicon.png">
+</head>
+<body>
+
+    <div id="header-particles"></div>
+
+    <main class="section">
+        <div class="card card-rules">
+            <div class="rules-header">
+                <div class="lock-icon">📜</div>
+                <h2>REGLAS DE LA NOCHE</h2>
+                <p class="glitch-text">El incumplimiento de estas normas conlleva el destierro absoluto.</p>
+            </div>
+
+            <div class="rules-list">
+                
+                <div class="rule-item">
+                    <div class="rule-number">01</div>
+                    <div class="rule-content">
+                        <h3>RESPETO ANTE TODO</h3>
+                        <p>No se tolera el odio, la discriminación ni el acoso. Tratémonos con la misma elegancia que un vampiro en un baile de gala.</p>
+                    </div>
+                </div>
+
+                <div class="rule-item">
+                    <div class="rule-number">02</div>
+                    <div class="rule-content">
+                        <h3>NADA DE SPAM</h3>
+                        <p>No invoques portales a otros mundos (links) sin permiso. Las menciones excesivas también perturban el descanso del murciélago.</p>
+                    </div>
+                </div>
+
+                <div class="rule-item">
+                    <div class="rule-number">03</div>
+                    <div class="rule-content">
+                        <h3>EVITAR EL "BACKSEATING"</h3>
+                        <p>A menos que Suzu pida ayuda, deja que el caos siga su curso. El aprendizaje es parte de la maldición.</p>
+                    </div>
+                </div>
+
+                <div class="rule-item">
+                    <div class="rule-number">04</div>
+                    <div class="rule-content">
+                        <h3>TEMAS PROHIBIDOS</h3>
+                        <p>Evita hablar de política, religión o temas demasiado personales que rompan la atmósfera del stream.</p>
+                    </div>
+                </div>
+
+                <div class="rule-item">
+                    <div class="rule-number">05</div>
+                    <div class="rule-content">
+                        <h3>DISFRUTA DEL HECHIZO</h3>
+                        <p>Ponte cómodo y disfruta. Estamos aquí para crear una comunidad unida en la noche eterna.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="rules-footer">
+                <a href="index.html" class="btn-action">ACEPTO EL PACTO</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Función de partículas que ya conoces
+        function createParticles() {
+            const container = document.getElementById('header-particles');
+            if(!container) return;
+            for (let i = 0; i < 30; i++) {
+                const p = document.createElement('div');
+                p.classList.add('particle');
+                p.style.left = Math.random() * 100 + '%';
+                p.style.top = Math.random() * 100 + '%';
+                const size = Math.random() * 3 + 1 + 'px';
+                p.style.width = size; p.style.height = size;
+                p.style.animationDuration = Math.random() * 10 + 5 + 's';
+                container.appendChild(p);
+            }
+        }
+        createParticles();
+    </script>
+</body>
+</html>
