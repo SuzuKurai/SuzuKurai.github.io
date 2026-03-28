@@ -740,3 +740,90 @@ html {
     background: #a78bfa;
     color: #000;
 }
+
+/* --- ESTILOS DE REGLAS --- */
+.card-rules {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 40px;
+    position: relative;
+    border-top: 4px solid var(--accent-purple); /* Un detalle de color arriba */
+}
+
+.rules-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.rules-header h2 {
+    font-size: 2.5rem;
+    letter-spacing: 4px;
+    margin: 10px 0;
+    color: #fff;
+}
+
+.rules-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    text-align: left;
+}
+
+.rule-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 10px;
+    transition: transform 0.3s ease, background 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.rule-item:hover {
+    background: rgba(139, 92, 246, 0.05);
+    border-color: rgba(139, 92, 246, 0.2);
+    transform: translateX(10px);
+}
+
+.rule-number {
+    font-family: 'Courier New', monospace;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent-purple);
+    text-shadow: 0 0 10px var(--accent-purple);
+    padding-top: 5px;
+}
+
+.rule-content h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.1rem;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.rule-content p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.rules-footer {
+    margin-top: 40px;
+    text-align: center;
+}
+
+/* Responsivo para móviles */
+@media (max-width: 600px) {
+    .rule-item {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .rule-item:hover {
+        transform: translateY(-5px);
+    }
+    .rules-header h2 {
+        font-size: 1.8rem;
+    }
+}
