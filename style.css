@@ -827,3 +827,47 @@ html {
         font-size: 1.8rem;
     }
 }
+
+.card-lore {
+    background: linear-gradient(145deg, #1a0b2e, #0d0616); /* Un fondo más oscuro y místico */
+    border: 1px solid #4a148c;
+    box-shadow: 0 0 20px rgba(138, 43, 226, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.story-text {
+    font-family: 'Crimson Text', serif; /* Una fuente más de "libro" si puedes importarla */
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #e1bee7;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.magic-circle {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 10px #8a2be2);
+    animation: float 3s ease-in-out infinite;
+}
+
+.lore-signature {
+    margin-top: 30px;
+    text-align: right;
+    font-family: 'Dancing Script', cursive; /* Estilo de firma */
+    color: #9575cd;
+}
+
+.lore-seal {
+    width: 40px;
+    opacity: 0.6;
+    filter: sepia(1) hue-rotate(250deg);
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
