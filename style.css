@@ -871,3 +871,36 @@ html {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
 }
+
+/* Estilos específicos para centrar el contenido del error */
+.error-wrapper {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.error-code {
+    font-size: clamp(5rem, 15vw, 10rem); /* Tamaño fluido */
+    line-height: 1;
+    margin: 0;
+    color: var(--accent-purple);
+}
+
+.error-description {
+    max-width: 600px;
+    margin: 20px auto;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* Reutilizamos el efecto glitch que ya tienes para el número */
+.glitch-404 {
+    font-weight: 900;
+    position: relative;
+}
