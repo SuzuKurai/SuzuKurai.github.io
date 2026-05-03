@@ -4,172 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Suzu Kurai | Lore 🦇</title>
-    <style>
-        /* Usando tu paleta exacta */
-        :root {
-            --bg-dark: #050505;
-            --bg-gradient: linear-gradient(135deg, #0a0a0a 0%, #1a0b1a 100%);
-            --accent-purple: #8b5cf6;
-            --accent-crimson: #991b1b;
-            --text-main: #e2e8f0;
-            --text-muted: #94a3b8;
-            --border-glow: rgba(139, 92, 246, 0.3);
-        }
-
-        body {
-            margin: 0; padding: 0;
-            background: var(--bg-dark);
-            background-image: var(--bg-gradient);
-            background-attachment: fixed;
-            color: var(--text-main);
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-        }
-
-        h1, h2, h3 {
-            font-family: 'Georgia', serif;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #fff;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8), 0 0 15px var(--border-glow);
-        }
-
-        /* --- HEADER PRESENTACIÓN --- */
-        header {
-            position: relative;
-            padding: 80px 20px;
-            text-align: center;
-            background: rgba(0, 0, 0, 0.9);
-            border-bottom: 2px solid var(--accent-purple);
-            box-shadow: 0 5px 30px rgba(139, 92, 246, 0.2);
-            overflow: hidden;
-        }
-
-        .header-content { position: relative; z-index: 2; }
-        
-        .header-logo {
-            max-width: 350px;
-            filter: drop-shadow(0 0 15px var(--accent-purple));
-        }
-
-        #header-particles {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 1; pointer-events: none;
-        }
-
-        .particle {
-            position: absolute;
-            background-color: rgba(139, 92, 246, 0.4);
-            border-radius: 50%;
-            animation: floatParticle linear infinite;
-        }
-
-        @keyframes floatParticle {
-            0% { transform: translateY(0) scale(1); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 0.8; }
-            100% { transform: translateY(-100px) scale(0.5); opacity: 0; }
-        }
-
-        /* --- CONTENEDOR DE LORE --- */
-        .section {
-            max-width: 900px;
-            margin: auto;
-            padding: 60px 20px;
-        }
-
-        .card-lore {
-            background: rgba(15, 10, 20, 0.7);
-            padding: 50px;
-            border-left: 4px solid var(--accent-purple);
-            backdrop-filter: blur(10px);
-            position: relative;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-        }
-
-        .category-label {
-            font-size: 0.8rem;
-            color: var(--accent-purple);
-            letter-spacing: 4px;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .story-block {
-            margin-top: 30px;
-            border-top: 1px solid rgba(139, 92, 246, 0.1);
-            padding-top: 30px;
-        }
-
-        .story-text {
-            font-family: 'Crimson Text', serif;
-            font-size: 1.15rem;
-            color: #e1bee7;
-            text-align: justify;
-            margin-bottom: 20px;
-        }
-
-        /* --- GRID DE ATRIBUTOS --- */
-        .specs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin: 40px 0;
-        }
-
-        .spec-item {
-            background: rgba(255,255,255,0.03);
-            padding: 20px;
-            border: 1px solid rgba(139, 92, 246, 0.1);
-            border-radius: 8px;
-        }
-
-        .spec-title {
-            display: block;
-            font-size: 0.7rem;
-            color: var(--accent-purple);
-            text-transform: uppercase;
-            margin-bottom: 5px;
-        }
-
-        .spec-value {
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: #fff;
-        }
-
-        /* --- DECORACIONES --- */
-        .quote-box {
-            border-left: 2px solid var(--accent-crimson);
-            padding-left: 20px;
-            margin: 40px 0;
-            font-style: italic;
-            color: var(--text-muted);
-        }
-
-        .signature {
-            text-align: right;
-            font-family: 'Georgia', serif;
-            margin-top: 40px;
-            color: var(--accent-purple);
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px;
-            border-top: 1px solid var(--accent-purple);
-            color: var(--text-muted);
-            font-size: 0.8rem;
-        }
-    </style>
+    
+    <!-- Enlace a tu archivo de estilos externo -->
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/png" href="/rsc/favicon.png">
 </head>
-<body>
+<body class="lore-page">
 
     <header>
         <div id="header-particles"></div>
         <div class="header-content">
-            <!-- Reemplaza con tu logo real -->
-            <img src="rsc/Suzu Kurai Logo.png" alt="Suzu Kurai" class="header-logo">
+            <img src="../rsc/Suzu Kurai Logo.png" alt="Suzu Kurai" class="header-logo">
             <span class="category-label">Documento de Identidad VT-01</span>
             <h1>Suzu Kurai</h1>
         </div>
@@ -221,25 +66,21 @@
     </footer>
 
     <script>
-        // Sistema de partículas adaptado de tu CSS
         function createParticles() {
             const header = document.getElementById('header-particles');
+            if(!header) return;
             const count = 30;
             for (let i = 0; i < count; i++) {
                 const p = document.createElement('div');
                 p.classList.add('particle');
-                
                 const size = Math.random() * 5 + 2 + 'px';
                 p.style.width = size;
                 p.style.height = size;
-                
                 p.style.left = Math.random() * 100 + '%';
                 p.style.top = Math.random() * 100 + '%';
-                
                 const duration = Math.random() * 3 + 2 + 's';
                 p.style.animationDuration = duration;
                 p.style.animationDelay = Math.random() * 5 + 's';
-                
                 header.appendChild(p);
             }
         }
