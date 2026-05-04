@@ -986,3 +986,11 @@ html {
     margin-top: 40px;
     color: var(--accent-purple);
 }
+
+.lore-character-img {
+    max-width: 100%;    /* Evita que se salga de la tarjeta */
+    height: auto;       /* Mantiene la proporción */
+    max-height: 450px;  /* Ajusta este valor según prefieras ver de grande a Suzu */
+    filter: drop-shadow(0 0 15px var(--accent-purple)); /* Efecto de brillo místico */
+    border-radius: 10px;
+}
