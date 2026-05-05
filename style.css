@@ -994,3 +994,31 @@ html {
     filter: drop-shadow(0 0 15px var(--accent-purple)); /* Efecto de brillo místico */
     border-radius: 10px;
 }
+
+.btn-lore {
+    display: inline-block;
+    padding: 12px 30px;
+    background: rgba(139, 92, 246, 0.1); /* Púrpura muy suave */
+    color: var(--accent-purple);
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 1px solid var(--accent-purple);
+    border-radius: 50px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(139, 92, 246, 0.2);
+}
+
+.btn-lore:hover {
+    background: var(--accent-purple);
+    color: white;
+    box-shadow: 0 0 25px var(--accent-purple);
+    transform: translateY(-3px);
+}
+
+.btn-lore:active {
+    transform: translateY(-1px);
+}
