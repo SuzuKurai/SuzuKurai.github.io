@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -11,20 +11,17 @@
 
 <header>
   <div id="header-particles"></div>
-  
   <div class="header-content">
     <img src="rsc/Suzu Kurai Logo.png" alt="Suzu Kurai Logo" class="header-logo">
-    
   </div>
 </header>
 
-<nav>
-  <a href="#inicio">INICIO</a>
-  <a href="#lore">LORE</a>
-  <a href="#stream">STREAMS</a>
-  <a href="#galeria">FANARTS</a>
-  <a href="#contacto">REDES</a>
-  <a href="#faq">DATOS</a>
+<nav class="topnav">
+  <a href="/" class="topnav-link active">Inicio</a>
+  <a href="/lore" class="topnav-link">Lore</a>
+  <a href="/comandos" class="topnav-link">Comandos</a>
+  <a href="/redes" class="topnav-link">Redes</a>
+  <a href="/vip" class="topnav-link">VIP</a>
 </nav>
 
 <main>
@@ -35,6 +32,36 @@
     </div>
   </section>
 
+  <div class="content-layout">
+    <nav class="sidebar">
+      <a href="#inicio" class="sidebar-link active">
+        <span class="nav-icon">🏠</span>
+        <span class="nav-text">INICIO</span>
+      </a>
+      <a href="#lore" class="sidebar-link">
+        <span class="nav-icon">🔮</span>
+        <span class="nav-text">LORE</span>
+      </a>
+      <a href="#stream" class="sidebar-link">
+        <span class="nav-icon">🎥</span>
+        <span class="nav-text">STREAMS</span>
+      </a>
+      <a href="#galeria" class="sidebar-link">
+        <span class="nav-icon">🖼️</span>
+        <span class="nav-text">FANARTS</span>
+      </a>
+      <a href="#contacto" class="sidebar-link">
+        <span class="nav-icon">📡</span>
+        <span class="nav-text">REDES</span>
+      </a>
+      <a href="#faq" class="sidebar-link">
+        <span class="nav-icon">❓</span>
+        <span class="nav-text">DATOS</span>
+      </a>
+    </nav>
+
+    <div class="content">
+
 <section class="section" id="lore">
   <div class="card card-lore magic-reveal">
     <div class="lore-header">
@@ -43,12 +70,10 @@
     </div>
     
     <div class="lore-body">
-      <!-- Aquí puedes poner un pequeño resumen si quieres -->
       <p style="text-align: center; color: var(--text-muted); margin-bottom: 20px;">
         Descubre el origen del murciélago que camina entre humanos.
       </p>
       
-      <!-- BOTÓN DE LORE -->
       <div style="display: flex; justify-content: center;">
         <a href="/lore" class="btn-lore">
           Explorar en las sombras
@@ -78,7 +103,7 @@
 <section class="section" id="galeria">
   <div class="card card-gallery">
     <h3>🖼️ FANARTS</h3>
-    <p style="margin-bottom: 20px; color: var(--text-muted);">Fragmentos visuales dejados por los artistas, gracias por vuestro apoyo 🖤<p>¡No olvides mandar tus dibujos por nuestro discord!</p>
+    <p style="margin-bottom: 20px; color: var(--text-muted);"><p>¡No olvides mandar tus dibujos por nuestro discord!</p>
     
     <div class="gallery-grid">
       <div class="gallery-item">
@@ -97,12 +122,18 @@
 </div>
 
 <section class="section" id="contacto">
-  <div class="card card-contact">
-    <h3>📡 REDES</h3>
+  <div class="card card-contact magic-reveal">
+    <div class="lore-header">
+      <div class="magic-circle">📡</div>
+      <h3>REDES</h3>
+    </div>
+    <p style="text-align: center; color: var(--text-muted); margin-bottom: 20px;">
+      Conéctate con el murciélago que vigila entre sombras.
+    </p>
     <div class="social-grid">
             
       <a href="/redes/twitch" target="_blank" class="social-card tw">
-        <img src="rsc/twitch-icon.png" alt="Twitter" class="social-icon">
+        <img src="rsc/twitch-icon.png" alt="Twitch" class="social-icon">
         <div class="social-info">
           <span class="social-name">Twitch</span>
           <span class="social-user">@SuzuKurai</span>
@@ -118,7 +149,7 @@
       </a>
 
       <a href="/redes/youtube" target="_blank" class="social-card yt">
-        <img src="rsc/youtube-icon.png" alt="Youtube" class="social-icon">
+        <img src="rsc/youtube-icon.png" alt="YouTube" class="social-icon">
         <div class="social-info">
           <span class="social-name">YouTube</span>
           <span class="social-user">@SuzuKurai</span>
@@ -141,16 +172,8 @@
         </div>
       </a>
 
-      <a href="/redes/twitter" target="_blank" class="social-card x">
-        <img src="rsc/twitter-icon.png" alt="Twitter" class="social-icon">
-        <div class="social-info">
-          <span class="social-name">WhatsApp</span>
-          <span class="social-user">Las Voces de Suzu</span>
-        </div>
-      </a>
-
       <a href="/redes/kofi" target="_blank" class="social-card kf">
-        <img src="rsc/kofi-icon.png" alt="Kofi" class="social-icon">
+        <img src="rsc/kofi-icon.png" alt="Ko-fi" class="social-icon">
         <div class="social-info">
           <span class="social-name">Ko-fi</span>
           <span class="social-user">@SuzuKurai</span>
@@ -187,8 +210,11 @@
       <details>
         <summary>¿Qué pasó con el Suzu-verso?</summary>
         <p>El Suzu-verso sigue bien, pero se encuentra bajo otro nombre para mantenerse oculto de cualquier amenaza. En este universo viven los pixelitos, los espectadores de Suzu Kurai que fueron convertidos en una versión píxel para mantenerlos a salvo.</p>
+      </details>
     </div>
   </section>
+    </div>
+  </div>
 </main>
 
 <footer>
@@ -207,13 +233,11 @@ var options = {
     width: "100%",
     height: 480,
     channel: "SuzuKurai", 
-    // He añadido las tres formas más comunes de probar una web:
-    parent: ["suzukurai.github.io", "localhost", "127.0.0.1"] 
+    parent: ["suzukurai.github.io", "localhost", "127.0.0.1"]  
   };
 
 var player = new Twitch.Player("twitch-embed-container", options);
 
-// EVENTO: Cuando el directo empieza
 player.addEventListener(Twitch.Player.ONLINE, () => {
   const indicator = document.getElementById('live-status');
   const statusText = document.getElementById('status-text');
@@ -224,7 +248,6 @@ player.addEventListener(Twitch.Player.ONLINE, () => {
   console.log("Suzu está en directo. El hechizo ha comenzado.");
 });
 
-// EVENTO: Cuando el directo termina
 player.addEventListener(Twitch.Player.OFFLINE, () => {
   const indicator = document.getElementById('live-status');
   const statusText = document.getElementById('status-text');
@@ -236,7 +259,6 @@ player.addEventListener(Twitch.Player.OFFLINE, () => {
 
 const backToTopBtn = document.getElementById("btn-back-to-top");
 
-// Detectar cuando el usuario baja 400px desde el inicio
 window.onscroll = function() {
   if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
     backToTopBtn.style.display = "flex";
@@ -246,7 +268,6 @@ window.onscroll = function() {
   }
 };
 
-// Acción al hacer clic: subir suavemente
 backToTopBtn.onclick = function() {
   window.scrollTo({
     top: 0,
@@ -254,47 +275,82 @@ backToTopBtn.onclick = function() {
   });
 };
 
-// --- LÓGICA DE LA GALERÍA ---
+const sidebarLinks = document.querySelectorAll('.sidebar-link');
+const sections = document.querySelectorAll('section[id]');
+const sidebar = document.querySelector('.sidebar');
+
+const observerOptions = {
+  root: null,
+  rootMargin: '-30% 0px -60% 0px',
+  threshold: 0
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.getAttribute('id');
+      sidebarLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + id) {
+          link.classList.add('active');
+        }
+      });
+    }
+  });
+}, observerOptions);
+
+sections.forEach(section => observer.observe(section));
+
+const heroObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) {
+      sidebar.classList.add('visible');
+    } else {
+      sidebar.classList.remove('visible');
+    }
+  });
+}, { threshold: 0 });
+
+const hero = document.querySelector('.hero');
+if (hero) {
+  heroObserver.observe(hero);
+}
+
 const modal = document.getElementById("image-modal");
 const modalImg = document.getElementById("img-full");
 const captionText = document.getElementById("modal-caption");
 const closeBtn = document.querySelector(".close-modal");
 
-// Seleccionamos todas las imágenes de la galería
 document.querySelectorAll(".clickable-img").forEach(img => {
   img.onclick = function() {
     modal.style.display = "block";
     modalImg.src = this.src;
-    captionText.innerHTML = this.alt; // Usa el atributo 'alt' como título
+    captionText.innerHTML = this.alt;
   }
 });
 
-// Cerrar al hacer clic en la X
 closeBtn.onclick = function() {
   modal.style.display = "none";
 }
 
-// Cerrar al hacer clic fuera de la imagen
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
 }
 
-        // Reutilizamos tu función de partículas para el fondo
-        function createParticles() {
-            const container = document.getElementById('header-particles');
-            for (let i = 0; i < 40; i++) {
-                const p = document.createElement('div');
-                p.classList.add('particle');
-                p.style.left = Math.random() * 100 + '%';
-                p.style.top = Math.random() * 100 + '%';
-                const size = Math.random() * 3 + 1 + 'px';
-                p.style.width = size; p.style.height = size;
-                p.style.animationDuration = Math.random() * 10 + 5 + 's';
-                container.appendChild(p);
-            }
-        }
-        createParticles();
-    </script>
+function createParticles() {
+  const container = document.getElementById('header-particles');
+  for (let i = 0; i < 40; i++) {
+    const p = document.createElement('div');
+    p.classList.add('particle');
+    p.style.left = Math.random() * 100 + '%';
+    p.style.top = Math.random() * 100 + '%';
+    const size = Math.random() * 3 + 1 + 'px';
+    p.style.width = size; p.style.height = size;
+    p.style.animationDuration = Math.random() * 10 + 5 + 's';
+    container.appendChild(p);
+  }
+}
+createParticles();
 </script>

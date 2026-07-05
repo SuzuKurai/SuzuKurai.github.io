@@ -18,9 +18,10 @@ body {
   color: var(--text-main);
   font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
-/* Tipografía elegante para títulos */
+/* TipografÃ­a elegante para tÃ­tulos */
 h1, h2, h3 {
   font-family: 'Georgia', serif;
   letter-spacing: 1px;
@@ -29,35 +30,91 @@ h1, h2, h3 {
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8), 0 0 15px var(--border-glow);
 }
 
-/* Header & Navegación */
-/* --- AJUSTES DEL HEADER PARA LOGO Y PARTÍCULAS --- */
-header {
-    position: relative; /* Necesario para las partículas absolutas */
-    padding: 60px 20px; /* Más espacio para el logo */
-    text-align: center;
-    background: rgba(0, 0, 0, 0.9); /* Un poco más oscuro */
-    border-bottom: 2px solid var(--accent-purple);
-    box-shadow: 0 5px 30px rgba(139, 92, 246, 0.2);
-    overflow: hidden; /* Importante: las partículas no salen del header */
+.topnav {
+   position: sticky;
+   top: 0;
+   width: 100vw;
+   box-sizing: border-box;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 32px;
+   padding: 18px 0;
+   background: rgba(5, 5, 5, 0.92);
+   backdrop-filter: blur(14px);
+   border-bottom: 1px solid rgba(139, 92, 246, 0.25);
+   z-index: 9999;
 }
 
-/* Contenedor de contenido para asegurar que el texto esté sobre las partículas */
+.topnav-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  position: relative;
+  padding: 6px 0;
+  transition: color 0.3s ease;
+}
+
+.topnav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background: var(--accent-purple);
+  box-shadow: 0 0 8px var(--accent-purple);
+  transition: width 0.3s ease;
+}
+
+.topnav-link:hover {
+  color: #fff;
+}
+
+.topnav-link:hover::after {
+  width: 100%;
+}
+
+.topnav-link.active {
+  color: #fff;
+}
+
+.topnav-link.active::after {
+  width: 100%;
+}
+
+/* Header & NavegaciÃ³n */
+/* --- AJUSTES DEL HEADER PARA LOGO Y PARTÃCULAS --- */
+header {
+    position: relative; /* Necesario para las partÃ­culas absolutas */
+    padding: 60px 20px; /* MÃ¡s espacio para el logo */
+    text-align: center;
+    background: rgba(0, 0, 0, 0.9); /* Un poco mÃ¡s oscuro */
+    border-bottom: 2px solid var(--accent-purple);
+    box-shadow: 0 5px 30px rgba(139, 92, 246, 0.2);
+    overflow: hidden; /* Importante: las partÃ­culas no salen del header */
+}
+
+/* Contenedor de contenido para asegurar que el texto estÃ© sobre las partÃ­culas */
 .header-content {
     position: relative;
-    z-index: 2; /* Sobre las partículas */
+    z-index: 2; /* Sobre las partÃ­culas */
 }
 
 /* ESTILO DEL LOGO */
 .header-logo {
-    max-width: 400px; /* Ajusta el tamaño según tu logo */
+    max-width: 400px;
     height: auto;
-    margin-bottom: 15px;
-    filter: drop-shadow(0 0 10px var(--accent-purple)); /* Brillo morado al logo */
+    margin: 0 auto 15px;
+    filter: drop-shadow(0 0 10px var(--accent-purple));
     position: relative;
     z-index: 2;
+    display: block;
 }
 
-/* Reducimos el tamaño del H1 si hay logo */
+/* Reducimos el tamaÃ±o del H1 si hay logo */
 header h1 {
     font-size: 2.5rem;
     margin-top: 0;
@@ -66,14 +123,14 @@ header h1 {
     z-index: 2;
 }
 
-/* --- ESTILOS DE PARTÍCULAS (SOLO EN HEADER) --- */
+/* --- ESTILOS DE PARTÃCULAS (SOLO EN HEADER) --- */
 #header-particles {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1; /* Detrás del texto y logo */
+    z-index: 1; /* DetrÃ¡s del texto y logo */
     pointer-events: none; /* No interfieren con clics */
 }
 
@@ -86,7 +143,7 @@ header h1 {
     opacity: 0; /* Empiezan invisibles */
 }
 
-/* Animación de flotación mística */
+/* AnimaciÃ³n de flotaciÃ³n mÃ­stica */
 @keyframes floatParticle {
     0% {
         transform: translateY(0) scale(1);
@@ -104,30 +161,99 @@ header h1 {
     }
 }
 
-nav {
+.content-layout {
+  display: flex;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.sidebar {
   position: sticky;
-  top: 0;
+  top: 100px;
+  height: fit-content;
+  width: 220px;
   background: rgba(5, 5, 5, 0.9);
   backdrop-filter: blur(10px);
-  padding: 15px;
-  text-align: center;
-  z-index: 1000;
-  border-bottom: 1px solid var(--accent-purple);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 12px;
+  padding: 20px 0;
+  z-index: 500;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-nav a {
+.sidebar.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 24px;
   color: var(--text-muted);
-  margin: 0 20px;
   text-decoration: none;
   font-weight: bold;
-  font-size: 0.9em;
-  transition: all 0.4s ease;
+  font-size: 0.85em;
   letter-spacing: 2px;
+  transition: all 0.3s ease;
+  position: relative;
+  border-left: 3px solid transparent;
 }
 
-nav a:hover {
+.sidebar-link:hover {
   color: var(--accent-purple);
+  background: rgba(139, 92, 246, 0.05);
+  border-left-color: var(--accent-purple);
   text-shadow: 0 0 8px var(--accent-purple);
+}
+
+.sidebar-link.active {
+  color: var(--accent-purple);
+  background: rgba(139, 92, 246, 0.1);
+  border-left-color: var(--accent-purple);
+  text-shadow: 0 0 10px var(--accent-purple), 0 0 20px rgba(139, 92, 246, 0.4);
+}
+
+.sidebar-link.active .nav-icon {
+  filter: drop-shadow(0 0 8px var(--accent-purple));
+}
+
+.sidebar-link.active::after {
+  content: '';
+  position: absolute;
+  right: 15px;
+  width: 6px;
+  height: 6px;
+  background: var(--accent-purple);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--accent-purple), 0 0 12px var(--accent-purple);
+  animation: pulseDot 1.5s infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.6; }
+}
+
+.nav-icon {
+  font-size: 1.2rem;
+  width: 24px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.nav-text {
+  white-space: nowrap;
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
 }
 
 /* Hero Section */
@@ -140,7 +266,7 @@ nav a:hover {
   text-align: center;
   padding: 20px;
 
-  /* CAMBIOS CLAVE AQUÍ: */
+  /* CAMBIOS CLAVE AQUÃ: */
   background-image: 
     linear-gradient(to bottom, rgba(0,0,0,0.3), var(--bg-dark)), 
     url('rsc/SuzuView.png'); 
@@ -156,7 +282,7 @@ nav a:hover {
   color: var(--accent-purple);
 }
 
-/* Tarjetas Estilo Gótico/Cristal */
+/* Tarjetas Estilo GÃ³tico/Cristal */
 .section {
   scroll-margin-top: 80px;
   padding: 60px 20px;
@@ -205,7 +331,7 @@ footer {
   color: var(--text-muted);
 }
 
-/* --- ESTILOS ESPECÍFICOS POR SECCIÓN --- */
+/* --- ESTILOS ESPECÃFICOS POR SECCIÃ“N --- */
 
 /* 1. LORE: Efecto de archivo bloqueado */
 .card-lore {
@@ -220,7 +346,7 @@ footer {
 }
 @keyframes scan { from { top: 0; } to { top: 100%; } }
 
-/* 2. STREAM: Estilo neón y botón */
+/* 2. STREAM: Estilo neÃ³n y botÃ³n */
 .card-stream { border-left-color: #9146FF; }
 .live-indicator {
     background: #9146FF; color: white; padding: 5px 10px;
@@ -237,7 +363,7 @@ footer {
 }
 .btn-action:hover { box-shadow: 0 0 20px var(--accent-purple); }
 
-/* --- AJUSTE DE LA CAJA DE GALERÍA --- */
+/* --- AJUSTE DE LA CAJA DE GALERÃA --- */
 
 .card-gallery {
     border-left: 4px solid var(--accent-purple);
@@ -252,7 +378,7 @@ footer {
     margin-top: 10px;
 }
 
-/* Ajuste de los ítems para que se vean uniformes */
+/* Ajuste de los Ã­tems para que se vean uniformes */
 .gallery-item {
     cursor: pointer;
     border-radius: 8px;
@@ -271,7 +397,7 @@ footer {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.8) contrast(1.1); /* Efecto gótico inicial */
+    filter: brightness(0.8) contrast(1.1); /* Efecto gÃ³tico inicial */
     transition: 0.4s ease;
 }
 
@@ -280,12 +406,74 @@ footer {
     transform: scale(1.1);
 }
 
-/* Responsivo: Si la pantalla es pequeña, pasamos a 2 o 1 columna */
+/* Responsivo: Si la pantalla es pequeÃ±a, pasamos a 2 o 1 columna */
 @media (max-width: 768px) {
     .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+
+    .content-layout {
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .sidebar {
+      width: 100%;
+      position: relative;
+      top: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px;
+      border-radius: 12px;
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+
+    .sidebar-link {
+      padding: 8px 12px;
+      font-size: 0.75em;
+      letter-spacing: 1px;
+      border-left: none;
+      border-radius: 8px;
+    }
+
+    .sidebar-link.active::after {
+      display: none;
+    }
+
+    .nav-icon {
+      display: none;
+    }
+
+    .topnav {
+      gap: 18px;
+      padding: 14px 16px;
+    }
+
+    .topnav-link {
+      font-size: 0.78rem;
+      letter-spacing: 1.5px;
+    }
 }
 @media (max-width: 480px) {
     .gallery-grid { grid-template-columns: 1fr; }
+
+    .sidebar-link {
+      font-size: 0.7em;
+      padding: 6px 10px;
+    }
+
+    .topnav {
+      flex-wrap: wrap;
+      gap: 14px;
+      padding: 12px 14px;
+    }
+
+    .topnav-link {
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+    }
 }
 
 /* --- ESTILOS DEL MODAL (POP-UP) --- */
@@ -345,11 +533,11 @@ footer {
 }
 .social-btn:hover { background: var(--accent-purple); color: black; }
 
-/* 5. FAQ: Estilo acordeón */
+/* 5. FAQ: Estilo acordeÃ³n */
 details { background: rgba(255,255,255,0.05); padding: 10px; border-radius: 5px; margin-bottom: 10px; }
 summary { font-weight: bold; cursor: pointer; color: var(--accent-purple); }
 
-/* TITULO SECCIÓN */
+/* TITULO SECCIÃ“N */
 .section-title { text-align: center; margin-bottom: 30px; font-size: 2rem; }
 
 /* Estado por defecto (Gris/Apagado) */
@@ -359,7 +547,7 @@ summary { font-weight: bold; cursor: pointer; color: var(--accent-purple); }
 }
 .live-indicator.offline .dot {
     background: #666;
-    animation: none; /* Sin parpadeo si está apagado */
+    animation: none; /* Sin parpadeo si estÃ¡ apagado */
 }
 
 /* Estado Online (Morado/Rojo parpadeante) */
@@ -388,7 +576,7 @@ html {
   background: rgba(139, 92, 246, 0.2); /* Morado suave transparente */
   color: var(--accent-purple);
   border: 2px solid var(--accent-purple);
-  border-radius: 50%; /* Esto lo hace círculo */
+  border-radius: 50%; /* Esto lo hace cÃ­rculo */
   cursor: pointer;
   transition: all 0.3s ease;
   backdrop-filter: blur(5px);
@@ -403,11 +591,11 @@ html {
 #btn-back-to-top:hover {
   background: var(--accent-purple);
   color: white;
-  transform: translateY(-5px); /* Pequeño salto al pasar el mouse */
+  transform: translateY(-5px); /* PequeÃ±o salto al pasar el mouse */
   box-shadow: 0 0 20px var(--accent-purple);
 }
 
-/* Animación de aparición */
+/* AnimaciÃ³n de apariciÃ³n */
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0); }
   to { opacity: 1; transform: scale(1); }
@@ -458,11 +646,11 @@ html {
 .prefix {
   color: var(--accent-purple);
   font-weight: 900;
-  margin-right: 2px; /* Un pelín de espacio para que no choque con la letra */
+  margin-right: 2px; /* Un pelÃ­n de espacio para que no choque con la letra */
   text-shadow: 0 0 8px var(--accent-purple);
 }
 
-/* Descripción del comando */
+/* DescripciÃ³n del comando */
 .command-desc {
   font-size: 0.95rem;
   color: var(--text-muted);
@@ -472,7 +660,7 @@ html {
   padding-top: 10px;
 }
 
-/* Etiqueta de "Uso" o parámetros [usuario] */
+/* Etiqueta de "Uso" o parÃ¡metros [usuario] */
 .command-usage {
   font-style: italic;
   font-size: 0.8rem;
@@ -482,7 +670,7 @@ html {
   display: block;
 }
 
-/* Decoración visual: El número de comando en el fondo */
+/* DecoraciÃ³n visual: El nÃºmero de comando en el fondo */
 .command-item::after {
   content: "CMD";
   position: absolute;
@@ -551,7 +739,7 @@ html {
 /* Los reflejos que bailan */
 .glitch-text::before,
 .glitch-text::after {
-    content: attr(data-text); /* <--- Esto toma el texto del HTML automáticamente */
+    content: attr(data-text); /* <--- Esto toma el texto del HTML automÃ¡ticamente */
     position: absolute;
     top: 0;
     left: 0;
@@ -598,12 +786,13 @@ html {
   100% { transform: skew(0deg); }
 }
 
-/* --- SECCIÓN REDES ESTÉTICA --- */
-.social-grid {
+/* --- SECCIÃ“N REDES ESTÃ‰TICA --- */
+.social-grid { 
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 15px;
     margin-top: 20px;
+    justify-content: center;
 }
 
 .social-card {
@@ -642,7 +831,7 @@ html {
     font-size: 0.85rem;
 }
 
-/* Efectos al pasar el ratón */
+/* Efectos al pasar el ratÃ³n */
 .social-card:hover {
     background: rgba(139, 92, 246, 0.1);
     border-color: var(--accent-purple);
@@ -655,7 +844,7 @@ html {
     filter: drop-shadow(0 0 8px var(--accent-purple));
 }
 
-/* Colores temáticos opcionales para los bordes al hacer hover */
+/* Colores temÃ¡ticos opcionales para los bordes al hacer hover */
 .x:hover { border-color: #ffffff; }
 .tk:hover { border-color: #ff0050; }
 .dc:hover { border-color: #5865F2; }
@@ -665,18 +854,48 @@ html {
 
 /* --- MODO LINKTREE / CARRD --- */
 .linktree-mode {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
     min-height: 100vh;
-    padding: 40px 20px;
+    padding: 0 0 40px;
+    position: relative;
+}
+
+.linktree-mode #header-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
 }
 
 .linktree-container {
     width: 100%;
-    max-width: 450px; /* Ancho típico de Carrd */
+    max-width: 450px;
     text-align: center;
     z-index: 2;
+    margin: 0 auto;
+}
+
+.linktree-mode header {
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 60px 20px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.9);
+    border-bottom: 2px solid var(--accent-purple);
+    box-shadow: 0 5px 30px rgba(139, 92, 246, 0.2);
+    overflow: hidden;
+}
+
+.linktree-mode .header-content {
+    text-align: center;
+}
+
+.linktree-mode .hero-content h2 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    color: var(--accent-purple);
 }
 
 .linktree-header {
@@ -814,7 +1033,7 @@ html {
     text-align: center;
 }
 
-/* Responsivo para móviles */
+/* Responsivo para mÃ³viles */
 @media (max-width: 600px) {
     .rule-item {
         flex-direction: column;
@@ -829,7 +1048,7 @@ html {
 }
 
 .card-lore {
-    background: linear-gradient(145deg, #1a0b2e, #0d0616); /* Un fondo más oscuro y místico */
+    background: linear-gradient(145deg, #1a0b2e, #0d0616); /* Un fondo mÃ¡s oscuro y mÃ­stico */
     border: 1px solid #4a148c;
     box-shadow: 0 0 20px rgba(138, 43, 226, 0.2);
     position: relative;
@@ -837,7 +1056,7 @@ html {
 }
 
 .story-text {
-    font-family: 'Crimson Text', serif; /* Una fuente más de "libro" si puedes importarla */
+    font-family: 'Crimson Text', serif; /* Una fuente mÃ¡s de "libro" si puedes importarla */
     font-size: 1.1em;
     line-height: 1.6;
     color: #e1bee7;
@@ -872,7 +1091,7 @@ html {
     50% { transform: translateY(-10px); }
 }
 
-/* Estilos específicos para centrar el contenido del error */
+/* Estilos especÃ­ficos para centrar el contenido del error */
 .error-wrapper {
     height: 100vh;
     display: flex;
@@ -886,7 +1105,7 @@ html {
 }
 
 .error-code {
-    font-size: clamp(5rem, 15vw, 10rem); /* Tamaño fluido */
+    font-size: clamp(5rem, 15vw, 10rem); /* TamaÃ±o fluido */
     line-height: 1;
     margin: 0;
     color: var(--accent-purple);
@@ -899,7 +1118,7 @@ html {
     font-style: italic;
 }
 
-/* Reutilizamos el efecto glitch que ya tienes para el número */
+/* Reutilizamos el efecto glitch que ya tienes para el nÃºmero */
 .glitch-404 {
     font-weight: 900;
     position: relative;
@@ -989,16 +1208,16 @@ html {
 
 .lore-character-img {
     max-width: 100%;    /* Evita que se salga de la tarjeta */
-    height: auto;       /* Mantiene la proporción */
-    max-height: 450px;  /* Ajusta este valor según prefieras ver de grande a Suzu */
-    filter: drop-shadow(0 0 15px var(--accent-purple)); /* Efecto de brillo místico */
+    height: auto;       /* Mantiene la proporciÃ³n */
+    max-height: 450px;  /* Ajusta este valor segÃºn prefieras ver de grande a Suzu */
+    filter: drop-shadow(0 0 15px var(--accent-purple)); /* Efecto de brillo mÃ­stico */
     border-radius: 10px;
 }
 
 .btn-lore {
     display: inline-block;
     padding: 12px 30px;
-    background: rgba(139, 92, 246, 0.1); /* Púrpura muy suave */
+    background: rgba(139, 92, 246, 0.1); /* PÃºrpura muy suave */
     color: var(--accent-purple);
     text-decoration: none;
     font-weight: bold;
@@ -1022,3 +1241,16 @@ html {
 .btn-lore:active {
     transform: translateY(-1px);
 }
+
+/* Tarjeta de contacto */
+.card-contact { text-align: center; }
+
+/* Header de lore para todas las secciones */
+.lore-header { text-align: center; margin-bottom: 20px; }
+
+/* Efecto reveal mágico */
+.magic-reveal { animation: magicReveal 1s ease-out forwards; opacity: 0; transform: translateY(20px); }
+@keyframes magicReveal { to { opacity: 1; transform: translateY(0); } }
+/* Hero para página de redes sin imagen de fondo */
+
+/* Hero para linktree-mode (sin imagen de fondo) */
