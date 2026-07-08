@@ -208,5 +208,45 @@
   btn.onclick = () => window.scrollTo({top: 0, behavior: 'smooth'});
 </script>
 
+<script>
+  // Copiar el comando al portapapeles al pulsar en la tarjeta
+  const toast = document.createElement("div");
+  toast.className = "copy-toast";
+  toast.textContent = "✅ Comando copiado";
+  document.body.appendChild(toast);
+
+  let toastTimer;
+  function showToast() {
+    toast.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove("show"), 1800);
+  }
+
+  function copyText(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(showToast).catch(fallbackCopy);
+    } else {
+      fallbackCopy();
+    }
+    function fallbackCopy() {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); showToast(); } catch (e) {}
+      document.body.removeChild(ta);
+    }
+  }
+
+  document.querySelectorAll(".command-item").forEach(item => {
+    item.addEventListener("click", () => {
+      const name = item.querySelector(".command-name");
+      if (name) copyText(name.textContent.trim());
+    });
+  });
+</script>
+
 </body>
 </html>

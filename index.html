@@ -33,33 +33,6 @@
   </section>
 
   <div class="content-layout">
-    <nav class="sidebar">
-      <a href="#inicio" class="sidebar-link active">
-        <span class="nav-icon">🏠</span>
-        <span class="nav-text">INICIO</span>
-      </a>
-      <a href="#lore" class="sidebar-link">
-        <span class="nav-icon">🔮</span>
-        <span class="nav-text">LORE</span>
-      </a>
-      <a href="#stream" class="sidebar-link">
-        <span class="nav-icon">🎥</span>
-        <span class="nav-text">STREAMS</span>
-      </a>
-      <a href="#galeria" class="sidebar-link">
-        <span class="nav-icon">🖼️</span>
-        <span class="nav-text">FANARTS</span>
-      </a>
-      <a href="#contacto" class="sidebar-link">
-        <span class="nav-icon">📡</span>
-        <span class="nav-text">REDES</span>
-      </a>
-      <a href="#faq" class="sidebar-link">
-        <span class="nav-icon">❓</span>
-        <span class="nav-text">DATOS</span>
-      </a>
-    </nav>
-
     <div class="content">
 
 <section class="section" id="lore">
@@ -277,7 +250,6 @@ backToTopBtn.onclick = function() {
 
 const sidebarLinks = document.querySelectorAll('.sidebar-link');
 const sections = document.querySelectorAll('section[id]');
-const sidebar = document.querySelector('.sidebar');
 
 const observerOptions = {
   root: null,
@@ -301,20 +273,7 @@ const observer = new IntersectionObserver((entries) => {
 
 sections.forEach(section => observer.observe(section));
 
-const heroObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) {
-      sidebar.classList.add('visible');
-    } else {
-      sidebar.classList.remove('visible');
-    }
-  });
-}, { threshold: 0 });
-
 const hero = document.querySelector('.hero');
-if (hero) {
-  heroObserver.observe(hero);
-}
 
 const modal = document.getElementById("image-modal");
 const modalImg = document.getElementById("img-full");
