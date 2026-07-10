@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Inicio</title>
+  <link rel="stylesheet" href="./css.css">
+  <style>
+    .neon-gothic {
+      color: #fff;
+      /* Margen: 0 arriba, 12px derecha, 0 abajo, 0 izquierda */
+      margin: 0 12px 0 0;
+      display: inline-block;
+
+      text-shadow:
+        0 0 5px #fff,
+        0 0 10px #bc13fe,
+        0 0 20px #bc13fe,
+        0 0 40px #bc13fe;
+      animation: blink 2s infinite;
+    }
+
+    @keyframes blink {
+      0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        text-shadow: 0 0 5px #fff, 0 0 10px #bc13fe, 0 0 20px #bc13fe, 0 0 40px #bc13fe;
+        color: #fff;
+      }
+      20%, 24%, 55% {
+        text-shadow: none;
+        color: #44105a;
+      }
+    }
+
+    .white-text {
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<div id="maindiv" class="maindiv">
+  <div id="space-bg" class="space-bg">
+    <div class="nebula nebula-1"></div>
+    <div class="nebula nebula-2"></div>
+    <div class="nebula nebula-3"></div>
+    <canvas id="starfield" class="starfield"></canvas>
+  </div>
+</div>
+<script src="./js.js"></script>
+</body>
+</html>

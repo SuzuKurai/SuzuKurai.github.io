@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fondo Mágico - Interior de Bola Mágica</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="bola-magica.css">
+</head>
+<body>
+    <!-- Stars -->
+    <div class="stars" id="stars"></div>
+
+    <!-- Energy orbs -->
+    <div class="energy-orb"></div>
+    <div class="energy-orb"></div>
+    <div class="energy-orb"></div>
+    <div class="energy-orb"></div>
+    <div class="energy-orb"></div>
+    <div class="energy-orb"></div>
+
+    <!-- Swirling mist layers -->
+    <div class="mist-layer"></div>
+    <div class="mist-layer"></div>
+    <div class="mist-layer"></div>
+    <div class="mist-layer"></div>
+    <div class="mist-layer"></div>
+
+    <!-- Light rays / sparkles -->
+    <div id="rays"></div>
+
+    <!-- Rings -->
+    <div class="ring-container" id="rings"></div>
+
+    <!-- Central glow -->
+    <div class="central-glow"></div>
+
+    <!-- Particles -->
+    <div class="particles-container" id="particles"></div>
+
+    <!-- Clock -->
+    <div class="clock" id="clock">
+        <div class="clock-face">
+            <div class="victorian-hand hour-hand" id="hourHand"></div>
+            <div class="victorian-hand minute-hand" id="minuteHand"></div>
+            <div class="victorian-hand second-hand" id="secondHand"></div>
+        </div>
+    </div>
+
+    <!-- Mouse interaction glow -->
+    <div class="mouse-glow" id="mouseGlow"></div>
+
+    <!-- Vignette -->
+    <div class="vignette"></div>
+
+    <script src="bola-magica.js"></script>
+</body>
+</html>
