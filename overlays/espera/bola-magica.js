@@ -20,17 +20,60 @@ function createRings() {
     const ringsContainer = document.getElementById('rings');
     const numRings = 4;
 
+    const sizes = [218, 351, 484, 156];
+    const durations = [24, 30, 36, 18];
+
     for (let i = 0; i < numRings; i++) {
         const ring = document.createElement('div');
         ring.className = 'ring';
-        const sizes = [218, 351, 484, 156];
-        const durations = [24, 30, 36, 18];
+        const fontSize = Math.max(12, sizes[i] / 8);
+
+        if (sizes[i] > 300) {
+            createRingNumbers(ringsContainer, sizes[i], fontSize);
+        }
+
         ring.style.width = sizes[i] + 'px';
         ring.style.height = sizes[i] + 'px';
         ring.style.setProperty('--duration', durations[i] + 's');
         ring.style.setProperty('--direction', i % 2 === 1 ? 'reverse' : 'normal');
         ringsContainer.appendChild(ring);
     }
+}
+
+function createClockNumbers() {
+    const clockFace = document.querySelector('.clock-face');
+    const symbols = ['⊕', '☉', '☽', '☿', '♃', '♀', '♂', '♄', '♅', '♆', '♇', '⚷'];
+    const radius = 120;
+
+    symbols.forEach((symbol, index) => {
+        const number = document.createElement('div');
+        number.className = 'clock-number';
+        number.textContent = symbol;
+        const angle = index * 30;
+        number.style.transform = `rotate(${angle}deg) translateY(-${radius}px) rotate(-${angle}deg)`;
+        clockFace.appendChild(number);
+    });
+}
+
+function createRingNumbers(ringContainer, ringSize, fontSize) {
+    const symbols = ['⊕', '☉', '☽', '☿', '♃', '♀', '♂', '♄', '♅', '♆', '♇', '⚷'];
+    const radius = ringSize / 2;
+
+    symbols.forEach((symbol, index) => {
+        const number = document.createElement('div');
+        number.className = 'ring-number';
+        number.textContent = symbol;
+
+        const angle = (index * 30 - 90) * Math.PI / 180;
+        const x = Math.cos(angle) * radius;
+        const y = Math.sin(angle) * radius;
+
+        number.style.left = `calc(50% + ${x}px)`;
+        number.style.top = `calc(50% + ${y}px)`;
+        number.style.fontSize = fontSize + 'px';
+
+        ringContainer.appendChild(number);
+    });
 }
 
 function createRunes() {
@@ -144,6 +187,7 @@ document.addEventListener('mouseenter', () => {
 
 createStars();
 createRings();
+createClockNumbers();
 createRunes();
 createSparkles();
 createParticles();

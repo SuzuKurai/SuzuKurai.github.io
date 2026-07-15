@@ -248,34 +248,25 @@ body {
     50% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
 }
 
-/* Mystical rings - soft ethereal circles */
-.ring-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-}
-
+/* Mystical rings - enhanced visibility */
 .ring {
     position: absolute;
     top: 50%;
     left: 50%;
     border-radius: 50%;
-    border: 1px solid rgba(186, 85, 211, 0.12);
-    background: radial-gradient(circle, transparent 60%, rgba(138, 43, 226, 0.03) 100%);
+    border: 2px solid rgba(186, 85, 211, 0.35);
+    background: radial-gradient(circle, transparent 55%, rgba(138, 43, 226, 0.04) 75%, transparent 100%);
     box-shadow: 
-        0 0 80px rgba(138, 43, 226, 0.05),
-        inset 0 0 80px rgba(138, 43, 226, 0.03);
+        0 0 20px rgba(186, 85, 211, 0.25),
+        0 0 60px rgba(138, 43, 226, 0.15),
+        inset 0 0 30px rgba(186, 85, 211, 0.08);
     animation: rotate var(--duration) linear infinite;
     animation-direction: var(--direction, normal);
 }
 
 @keyframes rotate {
-    0% { transform: translate(-50%, -50%) rotate(0deg) scale(1); }
-    50% { transform: translate(-50%, -50%) rotate(180deg) scale(1.03); }
-    100% { transform: translate(-50%, -50%) rotate(360deg) scale(1); }
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 /* Sparkle light bursts */
@@ -575,4 +566,27 @@ body {
     );
     border-radius: 50%;
     box-shadow: 0 0 16px rgba(186, 85, 211, 0.7);
+}
+
+.clock-number {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    color: rgba(186, 85, 211, 0.85);
+    font-family: 'Georgia', serif;
+    font-size: 26px;
+    text-shadow: 0 0 12px rgba(138, 43, 226, 0.9);
+    pointer-events: none;
+    margin-left: -13px;
+    margin-top: -13px;
+}
+
+.ring-number {
+    position: absolute;
+    color: rgba(186, 85, 211, 0.7);
+    font-family: 'Georgia', serif;
+    text-shadow: 0 0 8px rgba(138, 43, 226, 0.7);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 5;
 }

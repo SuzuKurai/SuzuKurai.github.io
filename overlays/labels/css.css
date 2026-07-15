@@ -1,0 +1,210 @@
+:root {
+    --magic-bg: #0b0a1f;
+    --magic-accent: #bc13fe;
+    --magic-accent-2: #6a8cff;
+    --magic-soft: rgba(186, 85, 211, 0.55);
+    --magic-glow: rgba(188, 19, 254, 0.7);
+    --magic-glow-soft: rgba(138, 43, 226, 0.35);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    font-family: 'Georgia', 'Palatino Linotype', 'Book Antiqua', serif;
+    overflow: hidden;
+}
+
+#labels {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 56px;
+    padding: 48px;
+}
+
+.labelDisplay {
+    position: relative;
+    margin-top: 34px;
+    display: inline-block;
+    min-width: 280px;
+    max-width: 90vw;
+    padding: 22px 40px;
+    visibility: hidden;
+
+    border-radius: 18px;
+    border: 1px solid var(--magic-soft);
+
+    background:
+        radial-gradient(ellipse at 30% 20%, rgba(106, 140, 255, 0.18) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 90%, rgba(188, 19, 254, 0.20) 0%, transparent 55%),
+        linear-gradient(160deg, rgba(20, 10, 40, 0.92) 0%, rgba(8, 4, 22, 0.95) 100%);
+
+    box-shadow:
+        0 0 22px var(--magic-glow-soft),
+        0 0 60px rgba(188, 19, 254, 0.18),
+        inset 0 0 30px rgba(138, 43, 226, 0.12);
+
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+
+    will-change: transform;
+    animation: label-appear 0.8s cubic-bezier(0.22, 1, 0.36, 1), label-float 9s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+@keyframes label-appear {
+    0% { opacity: 0; transform: translateY(14px) scale(0.96); filter: blur(4px); }
+    100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+
+@keyframes label-float {
+    0%   { transform: translate(0, 0); }
+    25%  { transform: translate(3px, -5px); }
+    50%  { transform: translate(0, -8px); }
+    75%  { transform: translate(-3px, -4px); }
+    100% { transform: translate(0, 0); }
+}
+
+.labelTextContent {
+    position: relative;
+    z-index: 2;
+    color: #f3e9ff;
+    font-size: 26px;
+    line-height: 1.4;
+    letter-spacing: 0.5px;
+    text-align: center;
+    text-shadow:
+        0 0 6px rgba(255, 255, 255, 0.7),
+        0 0 14px var(--magic-glow),
+        0 0 28px var(--magic-glow-soft);
+
+    will-change: transform;
+    animation: text-drift 9s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+@keyframes text-drift {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-3px); }
+    100% { transform: translateY(0); }
+}
+
+.labelTextContent strong,
+.labelTextContent b {
+    color: #fff;
+    font-weight: 700;
+    text-shadow:
+        0 0 8px var(--magic-accent),
+        0 0 20px var(--magic-accent);
+}
+
+.labelTextContent span,
+.labelTextContent em {
+    color: var(--magic-accent-2);
+    font-style: normal;
+    text-shadow: 0 0 10px rgba(106, 140, 255, 0.8);
+}
+
+.label-title {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--magic-accent-2);
+    text-shadow: 0 0 10px rgba(106, 140, 255, 0.8);
+    opacity: 0.9;
+}
+
+.label-value {
+    display: block;
+    font-size: 30px;
+    font-weight: 700;
+    color: #fff;
+    text-shadow:
+        0 0 8px var(--magic-accent),
+        0 0 22px var(--magic-glow-soft);
+}
+
+/* Mystical icon above the frame */
+.label-icon {
+    position: absolute;
+    top: -34px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+
+    font-size: 28px;
+    line-height: 1;
+    color: #fff;
+
+    background:
+        radial-gradient(circle at 35% 30%, rgba(106, 140, 255, 0.35) 0%, transparent 60%),
+        linear-gradient(160deg, rgba(30, 14, 55, 0.96) 0%, rgba(12, 6, 28, 0.98) 100%);
+
+    border: 1px solid var(--magic-soft);
+    box-shadow:
+        0 0 14px var(--magic-glow-soft),
+        0 0 28px rgba(188, 19, 254, 0.25),
+        inset 0 0 12px rgba(138, 43, 226, 0.2);
+    text-shadow: 0 0 10px var(--magic-glow);
+}
+
+/* Mystical corner ornaments */
+.labelOrnament {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    z-index: 3;
+    pointer-events: none;
+    border-color: var(--magic-accent);
+    filter: drop-shadow(0 0 6px var(--magic-glow));
+}
+
+.labelOrnament-tl {
+    top: 8px;
+    left: 8px;
+    border-top: 2px solid;
+    border-left: 2px solid;
+    border-top-left-radius: 8px;
+}
+
+.labelOrnament-tr {
+    top: 8px;
+    right: 8px;
+    border-top: 2px solid;
+    border-right: 2px solid;
+    border-top-right-radius: 8px;
+}
+
+.labelOrnament-bl {
+    bottom: 8px;
+    left: 8px;
+    border-bottom: 2px solid;
+    border-left: 2px solid;
+    border-bottom-left-radius: 8px;
+}
+
+.labelOrnament-br {
+    bottom: 8px;
+    right: 8px;
+    border-bottom: 2px solid;
+    border-right: 2px solid;
+    border-bottom-right-radius: 8px;
+}

@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;700&display=swap');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    background: transparent;
+}
+
+.main-container {
+    position: absolute;
+    left: {XPosition}{PositionTypeUnit};
+    top: {YPosition}{PositionTypeUnit};
+    transform: translate({XTranslation}%, {YTranslation}%);
+    width: {Width};
+    height: {Height};
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+}
+
+.message-item {
+    flex-direction: row;
+    display: none;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 6px rgba(138, 43, 226, 0.25));
+}
+
+.message-item:first-child {
+    display: flex;
+    animation: messageAppear 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Avatar con anillo mágico giratorio */
+.avatar-wrapper {
+    position: relative;
+    width: 46px;
+    height: 46px;
+    margin-left: 0;
+    margin-right: 11px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 52px;
+    height: 52px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 2px dashed rgba(188, 19, 254, 0.55);
+    box-shadow:
+        0 0 12px rgba(188, 19, 254, 0.6),
+        inset 0 0 8px rgba(138, 43, 226, 0.4);
+    animation: spin 9s linear infinite;
+    pointer-events: none;
+}
+
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid rgba(188, 19, 254, 0.7);
+    box-shadow:
+        0 0 14px rgba(138, 43, 226, 0.7),
+        inset 0 0 10px rgba(0, 0, 0, 0.4);
+    object-fit: cover;
+}
+
+/* Burbuja con gradiente de nebulosa y glow */
+.bubble {
+    position: relative;
+    background:
+        radial-gradient(ellipse at top right, rgba(188, 19, 254, 0.18) 0%, transparent 70%),
+        linear-gradient(160deg, rgba(34, 18, 60, 0.82) 0%, rgba(12, 6, 26, 0.92) 100%);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 9px 15px;
+    border-radius: 3px 16px 16px 16px;
+    border: 1.5px solid rgba(188, 19, 254, 0.35);
+    box-shadow:
+        0 0 18px rgba(138, 43, 226, 0.28),
+        inset 0 0 22px rgba(138, 43, 226, 0.12);
+    flex: 1;
+    min-width: 0;
+    max-width: 100%;
+    text-align: left;
+    overflow: hidden;
+}
+
+/* Destello mágico en la esquina de la burbuja */
+.bubble::before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 70px;
+    height: 70px;
+    background: radial-gradient(circle, rgba(188, 19, 254, 0.45) 0%, transparent 70%);
+    filter: blur(6px);
+    pointer-events: none;
+}
+
+.header {
+    margin-bottom: 4.5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 7px;
+}
+
+.username {
+    --user-color: #9b84ff;
+    font-family: 'Cinzel', 'Inter', serif;
+    font-weight: 700;
+    font-size: 16px;
+    position: relative;
+    z-index: 2;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    text-shadow:
+        0 0 1px #000,
+        0 1px 2px #000,
+        0 0 8px var(--user-color),
+        0 0 16px var(--user-color);
+}
+
+/* Halo mágico detrás del nombre usando el color del usuario */
+.username::before {
+    content: attr(data-name);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    color: var(--user-color);
+    filter: blur(5px);
+    opacity: 0.45;
+}
+
+/* Suscriptor / VIP: nombre rosa + puntitos dorados + destello */
+.username-special {
+    color: #ff8fd6;
+    text-shadow:
+        0 0 1px #000,
+        0 1px 2px #000,
+        0 0 10px var(--user-color),
+        0 0 20px #ff8fd6;
+}
+
+.username-special::after {
+    content: "";
+    position: absolute;
+    top: -6px;
+    right: -14px;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #ffd86b;
+    box-shadow:
+        9px 3px 0 0 #ffd86b,
+        -5px 7px 0 0 #ffe9a8,
+        15px -1px 0 0 #ffd86b,
+        3px 11px 0 0 #ffe9a8,
+        -10px -2px 0 0 #ffd86b;
+    animation: golden-twinkle 1.8s ease-in-out infinite;
+}
+
+@keyframes golden-twinkle {
+    0%, 100% { opacity: 0.35; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.15); }
+}
+
+.text-content {
+    color: #efe9ff;
+    font-size: 17px;
+    line-height: 1.45;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    text-align: left;
+    text-shadow: 0 0 4px rgba(138, 43, 226, 0.25);
+}
+
+/* Badges y Emotes escalados */
+.badges {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.badge-icon {
+    height: 19px;
+    vertical-align: middle;
+    filter: drop-shadow(0 0 4px rgba(188, 19, 254, 0.5));
+}
+
+.emote-img {
+    height: 30px;
+    vertical-align: middle;
+    margin: 0 3px;
+    display: inline-block;
+    filter: drop-shadow(0 0 6px rgba(138, 43, 226, 0.45));
+}
+
+@keyframes spin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes messageAppear {
+    0% {
+        opacity: 0;
+        transform: translateY(-37.5px) scale(0.96);
+        filter: blur(4px) drop-shadow(0 0 6px rgba(138, 43, 226, 0.25));
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0) drop-shadow(0 0 6px rgba(138, 43, 226, 0.25));
+    }
+}
